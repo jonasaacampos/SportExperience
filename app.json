@@ -1,0 +1,32 @@
+{
+  "id": "ecc6b5dc-9d8b-4399-ad77-bcc1e06ebe14",
+  "name": "SPE",
+  "publisher": "JAAC",
+  "version": "1.0.0.5",
+  "brief": "",
+  "description": "",
+  "privacyStatement": "",
+  "EULA": "",
+  "help": "",
+  "url": "",
+  "logo": "",
+  "dependencies": [],
+  "screenshots": [],
+  "platform": "1.0.0.0",
+  "application": "21.0.0.0",
+  "idRanges": [
+    {
+      "from": 50201,
+      "to": 50249
+    }
+  ],
+  "resourceExposurePolicy": {
+    "allowDebugging": true,
+    "allowDownloadingSource": true,
+    "includeSourceInSymbolFile": true
+  },
+  "runtime": "10.0",
+  "features": [
+    "NoImplicitWith", "TranslationFile"
+  ]
+}
