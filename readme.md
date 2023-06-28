@@ -9,9 +9,12 @@
       
 </p>
 
-<h1>Nome Empresa</h1>
+![Alt text](img/cover-repo.png)
 
-> Desc Projeto
+<h1>Sport Experience</h1>
+
+> Desenvolvimento de algumas rotinas de uma empresa especializada em eventos esportivos.
+Foram consumidas 2 APIs, aberta 1 API para outros sistemas, criadas tabelas, páginas, com validação de campos e interação com o usuário. A aplicação foi escrita em inglês e possui tradução para o portiguês do Brasil.
 
 <img alt="BC_logo" src="img\Dynamics-365-BC-logo-removebg.png?raw=true" width=150 align=right>
 
@@ -27,14 +30,34 @@
 
 - [Demo](#demo)
 - [Iniciar Projeto](#iniciar-projeto)
+- [Retorno das APIs](#retorno-das-apis)
 - [Documentação (descritivo) do projeto](#documentação-descritivo-do-projeto)
 - [Utilidades e Referências](#utilidades-e-referências)
-- [Contato](#contato)
+- [Cont(r)ate-me](#contrate-me)
+- [Agradecimentos](#agradecimentos)
 
 
 ## Demo 
 
-![Alt text](img/01_filmes_series_01.png)
+<details>
+  <summary><b>Influencers API</b></summary>
+
+![Alt text](img/Influencers_API.gif)
+</details>
+
+<details>
+  <summary><b>Marketing Campaigns</b></summary>
+
+![Alt text](img/marketingCampaigns.gif)
+</details>
+
+<details>
+  <summary><b>Reginal Runs (API Expose)</b></summary>
+
+![Alt text](img/ReginalRuns.gif)
+</details>
+
+[Slides utilizados para a apresentação do TCC](img/Sport%20Experience_TCC_Jonas_Campos.pdf)
 
 ## Iniciar Projeto
 
@@ -55,12 +78,103 @@
  - [ ] Aparecerão os módulos baixados do diretório `.alpackages` na seção explorer do projeto
  - [ ] Compile o projeto, `F5` para depuração ou `ctrl + F5` para publicação direta
 
-## Documentação (descritivo) do projeto
-
-> Aqui vou descrever a finalidade de adicionar cada componente, bem como o papel de cada um dentro do projeto. Cada descritivo segue uma indicação de qual versão foi implementada e versionada
+## Retorno das APIs
 
 <details>
-  <summary><b>👓 1 - Tabelas e Páginas</b> (<a href='https://github.com/jonasaacampos/Dynamics365_BC_TelevisionShows/commit/926bd9d3f62b9dd4434f8b3bd6f65713648c9264' target='_blank'>initial commit</a>)</summary>
+  <summary><b>Sport Influencers (exemplo de retorno da requisição)</b> </summary>
+
+```json
+
+[
+  {
+    "id": 1,
+    "name": "Cristiano Ronaldo",
+    "username": "CR7",
+    "email": "cristiano@ronaldo.com",
+    "address": {
+      "street": "Avenida dos Campeões",
+      "suite": "Apt. 7",
+      "city": "Madri",
+      "zipcode": "28001",
+      "geo": {
+        "lat": "40.4167",
+        "lng": "-3.7033"
+      }
+    },
+    "phone": "+34 123456789",
+    "website": "cristianoronaldo.com",
+    "company": {
+      "name": "CR7 Empreendimentos Esportivos",
+      "catchPhrase": "Transformando sonhos em realidade",
+      "bs": "Gerenciamento de carreiras esportivas"
+    }
+  },
+  {
+    "id": 2,
+    "name": "Neymar Jr.",
+    "username": "Neymar",
+    "email": "neymar@jr.com",
+    "address": {
+      "street": "Rua dos Craques",
+      "suite": "Apt. 10",
+      "city": "São Paulo",
+      "zipcode": "04578-910",
+      "geo": {
+        "lat": "-23.5644",
+        "lng": "-46.6517"
+      }
+    },
+    "phone": "+55 11 987654321",
+    "website": "neymarjr.com",
+    "company": {
+      "name": "NJ Sports",
+      "catchPhrase": "Paixão e dedicação pelo futebol",
+      "bs": "Marketing esportivo"
+    }
+  },
+
+```
+
+  </details>
+
+  <details>
+  <summary><b>Go Weather (exemplo de retorno da requisição)</b> </summary>
+
+```json
+
+{
+  "temperature": "16 °C",
+  "wind": "28 km/h",
+  "description": "Rain, mist",
+  "forecast": [
+    {
+      "day": "1",
+      "temperature": "20 °C",
+      "wind": "13 km/h"
+    },
+    {
+      "day": "2",
+      "temperature": "+14 °C",
+      "wind": "12 km/h"
+    },
+    {
+      "day": "3",
+      "temperature": "18 °C",
+      "wind": "9 km/h"
+    }
+  ]
+}
+
+```
+
+  </details>
+
+## Documentação (descritivo) do projeto
+
+> Aqui vou descrever a finalidade de adicionar cada componente, bem como o papel de cada um dentro do projeto.
+
+<details>
+  <summary><b>👓 1 - Tabelas e Páginas</b> </summary>
 
   Ao criar uma **tabela**, definimos quais dados desejamos capturar na aplicação. As propriedades de cada campo são definidos na tabela.
 
@@ -101,7 +215,7 @@
 <details>
   <summary><b>🧾 5 - Relatórios</b></summary>
 
-  Usando o snippet `report` foi criada a estutura básica do relatório. Como layout padrão, foi inserido o padrão RDLC, e foi definido um arquivo `Conteúdo Filmes e Séries disponíveis para exibição.rdl`. Se o relatório fosse um arquivo do Word, seria informada a extensão `.docx`.
+  Usando o snippet `report` foi criada a estutura básica do relatório. Como layout padrão, foi inserido o padrão RDLC.
 
   - após a criação, o projeto foi compilado com `ctrl + shift + b`. Feito isso, o arquivo de layout foi criado automaticamente.
   - o arquivo `.rdl` foi aberto e editado no Microsoft Report Buider
@@ -110,14 +224,14 @@
   Um relatório é composto por duas partes:
 
   1. Conjunto de dados (Dataset): é um arquivo `.al` que define as tabelas, campos, filtrose lógica do relatório
-  2. Layout: Arquivo **RDLC** ou **Word** que mostrará o relatório quando for gerado no BC.
+  2. Layout: Arquivo RDLC, Word ou Excel que mostrará o relatório quando for gerado no BC.
 
-  Para cada objeto do BC, você pode armazenar até dois layouts (um rdlc e um World). Depois de instalado no BC, o cliente pode alterar ou criar novos layouts com o recurso *Custom Report Layouts*.
+  Depois de instalado no BC, o cliente pode alterar ou criar novos layouts com o recurso *Custom Report Layouts*.
 
 </details>
 
 <details>
-  <summary><b>🧾 6 - Link de Ajuda</b> /summary>
+  <summary><b>🧾 6 - Link de Ajuda</b> </summary>
 
   Inserido link (fictítio) para que no canto superior direito da página de lista, seja possível abrir documentação externa. O parâmetro de link de ajuda é inserido na Page List.
 
@@ -145,7 +259,7 @@
 
 <!-- CONTACT -->
 
-## Contato
+## Cont(r)ate-me
 
 **Author:** Jonas Araujo de Avila Campos
 
@@ -159,3 +273,9 @@
     <img src='https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white'/>
   </a>
 </p>
+
+## Agradecimentos
+
+- Julio Chaves, por preparar e conduzir o treinamento
+- Colegas que seguiram até o final
+- Equipe de infra e RH da Alfa People
